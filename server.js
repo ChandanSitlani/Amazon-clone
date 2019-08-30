@@ -1,16 +1,16 @@
 var express=require('express'),
 app=express(),
-
+ejs=require('ejs'),
 LocalStrategy=require('passport-local'),
-passport=require('passport');
+passport=require('passport'),
 user=require('./models/user'),
 authRoutes=require('./routes/auth'),
 bodyParser=require('body-parser'),
 mongoose=require('mongoose');;
-
+app.use('/auth',authRoutes);
+app.set('view engine','ejs');
 
 app.use(bodyParser.json({ limit: '50mb' }));
-
 app.use(bodyParser.urlencoded({ limit: "50mb", extended: true, parameterLimit: 50000 }));
 
 app.use(passport.initialize());
