@@ -1,5 +1,6 @@
 var express=require('express'),
 router=express.Router();
+var mongoose=require('mongoose');
 var user=require('../models/user');
 router.get('/signup',function(req,res)
 {
@@ -11,7 +12,6 @@ res.send("Done");
 });
 }});
 });
-
 module.exports=router;
 
 
